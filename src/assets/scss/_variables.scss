@@ -1,0 +1,32 @@
+//Colors
+$blue: #1952e1;
+$selected-blue: #2e3e6e;
+//Figma design is created with number of grey shades, I will just use three as IMO it shouldn't
+//be more if we want to maintain reusability and consistency
+
+// Basic colors
+$black: #1a1a1a;
+$white: #fff;
+
+// Grey colors
+$grey: #9a9da4;
+$grey-light: #e2e4ea;
+$grey-u-light: #f8f8fb;
+$grey-dark: #63666e;
+
+// Background and element colors
+$bg-color: #f3f4f9;
+$element-bg-color: $white;
+$border-color: $grey;
+$border-radius: 4px;
+
+// Font weights
+$font-weight-bold: 600;
+$font-weight-semibold: 500;
+$font-weight-normal: 400;
+$font-weight-light: 300;
+
+// Font sizes
+$font-size-large: 24px;
+$font-size-normal: 14px;
+$font-size-small: 12px;
