@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import StopSelectionContainer from "@/components/bus-line-selector/StopSelectionContainer.vue";
 import TimeSelectionContainer from "@/components/bus-line-selector/TimeSelectionContainer.vue";
 </script>

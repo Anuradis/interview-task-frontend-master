@@ -78,8 +78,8 @@ export default function useBus() {
     setSelectedBusStop,
     setSearchedBusStop,
     setBusStops,
-    setLoading,
     setBusLines,
+    setLoading,
     // Methods
     loadBusStops,
   };

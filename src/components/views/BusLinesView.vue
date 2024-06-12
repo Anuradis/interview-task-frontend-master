@@ -1,9 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import SelectionPanel from "@/components/bus-line-selector/SelectionPanel.vue";
 import SelectionContainers from "@/components/bus-line-selector/SelectionContainers.vue";
 </script>
-
-
 
 <template>
   <div class="bus-lines mt-15">

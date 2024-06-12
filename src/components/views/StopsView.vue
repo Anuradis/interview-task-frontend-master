@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed, ref } from "vue";
 import ItemList from "@/components/item-list/ItemList.vue";
 import useBus from "@/composables/useBus";

@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import Header from "./components/Header.vue";
 import useBus from "./composables/useBus";
 import LoadingSpinner from "./components/LoadingSpinner.vue";

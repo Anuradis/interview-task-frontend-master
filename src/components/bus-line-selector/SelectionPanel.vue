@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import useBus from "@/composables/useBus";
 import SubTitle from "@/components/item-list/SubTitle.vue";
 import { TAggregatedBusLine } from "@/types/common";
@@ -8,7 +8,7 @@ const bus = useBus();
 
 /**
  * Selects a bus line and updates the state accordingly.
- * 
+ *
  * @param {number} index - The index of the selected bus line in the busLines array.
  */
 const selectLine = (index: number) => {

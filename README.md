@@ -1,5 +1,20 @@
 # Bus stops interview task
 
+## Functionality Overview
+
+Entry Page - Viewing Bus Lines at http://localhost:8080:
+
+Users see the "Timetable" page with navigation links for "Bus Lines" and "Stops", where "Bus Lines" is active.
+"Bus Lines" are listed in ascending order.
+Clicking a bus line reveals "Bus Stops", sorted by default and sortable by stop order.
+Selecting a bus stop displays "Time" entries, sorted in ascending order.
+Stops Page - Viewing Stops at http://localhost:8080/stops:
+
+Users see the "Timetable" page with navigation links for "Bus Lines" and "Stops", where "Stops" is active.
+A search bar filters "Bus Stops", initially showing all stops sorted by default.
+Users can sort "Bus Stops" by stop order using an icon.
+
+
 ## Notes
 
 This app was created as part of an interview task to allow users to preview bus data.
@@ -31,17 +46,3 @@ All requirements listed here can be reviewed and checked against in the root rep
 2. `npm run api` - run the API
 3. `npm run serve` - for the Vue application
 4. `npm run test:unit` - for running unit test suite
-
-## App Functionality Overview
-
-Entry Page - Viewing Bus Lines at http://localhost:8080:
-
-Users see the "Timetable" page with navigation links for "Bus Lines" and "Stops", where "Bus Lines" is active.
-"Bus Lines" are listed in ascending order.
-Clicking a bus line reveals "Bus Stops", sorted by default and sortable by stop order.
-Selecting a bus stop displays "Time" entries, sorted in ascending order.
-Stops Page - Viewing Stops at http://localhost:8080/stops:
-
-Users see the "Timetable" page with navigation links for "Bus Lines" and "Stops", where "Stops" is active.
-A search bar filters "Bus Stops", initially showing all stops sorted by default.
-Users can sort "Bus Stops" by stop order using an icon.

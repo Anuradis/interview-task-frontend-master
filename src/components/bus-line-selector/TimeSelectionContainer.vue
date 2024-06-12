@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import useBus from "@/composables/useBus";
 import ItemList from "@/components/item-list/ItemList.vue";
 import { formatOrder } from "@/utils/common";
