@@ -4,7 +4,7 @@ import {
   TAggregatedBusStop,
   TAggregatedBusLine,
 } from "@/types/common";
-import { reactive, readonly } from "vue";
+import { ComputedRef, computed, reactive, readonly } from "vue";
 import BusService from "@/services/BusService";
 import {
   groupBusStopsByLineAndStopsByTime,
@@ -26,6 +26,7 @@ const state = reactive<TBusState>({
  */
 export default function useBus() {
   // Setters are used to update the state
+
   const setSelectedBusLine = (busLine: TAggregatedBusLine | null) => {
     state.selectedBusLine = busLine;
   };
@@ -49,6 +50,26 @@ export default function useBus() {
   const setLoading = (loading: boolean) => {
     state.loading = loading;
   };
+
+  //Computed
+
+  /**
+   * Computed property for getting the stops of the selected bus line.
+   * This property returns the list of stops for the currently selected bus line from the application state.
+   */
+  const selectedBusLineStops: ComputedRef<TAggregatedBusStop[]> = computed(
+    () => state.selectedBusLine?.stops || []
+  );
+
+  /**
+   * Computed property for getting the times of the selected bus stop.
+   * This property returns the list of times for the currently selected bus stop from the application state.
+   */
+  const selectedBusStopTimes: ComputedRef<string[]> = computed(
+    () => state.selectedBusStop?.times || []
+  );
+
+  // Methods
 
   /**
    * Load bus stops from the API and group them by line
@@ -80,6 +101,9 @@ export default function useBus() {
     setBusStops,
     setBusLines,
     setLoading,
+    // Computed
+    selectedBusLineStops,
+    selectedBusStopTimes,
     // Methods
     loadBusStops,
   };

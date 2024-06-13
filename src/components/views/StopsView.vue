@@ -1,14 +1,13 @@
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { ComputedRef, computed, ref } from "vue";
 import ItemList from "@/components/item-list/ItemList.vue";
 import useBus from "@/composables/useBus";
 import searchIcon from "@/assets/icons/search-blue.svg";
 import searchIconInactive from "@/assets/icons/search-grey.svg";
-/**
- * Computes a filtered list of bus stops based on the search value.
- * @returns {TBusStop[]} The filtered list of bus stops.
- */
-const filteredBusStopList = computed(() => {
+import { TBusStop } from "@/types/common";
+
+// Computes a filtered list of bus stops based on the search value.
+const filteredBusStopList: ComputedRef<TBusStop[]> = computed(() => {
   return bus.state.busStops.filter((searchedStop) =>
     searchedStop.stop.toLowerCase().includes(search.value.toLowerCase())
   );

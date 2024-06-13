@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { computed } from "vue";
+import { ComputedRef, computed } from "vue";
 import { useRouter } from "vue-router";
 import { TABS } from "@/constants/common";
 import { TTab } from "@/types/common";
 import useBus from "@/composables/useBus";
 
 const router = useRouter();
-const activePath = computed(() => router.currentRoute.value.path);
+const activePath: ComputedRef<string> = computed(() => router.currentRoute.value.path);
 const bus = useBus();
 
 const setActiveTab = (tab: TTab) => {

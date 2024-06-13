@@ -2,7 +2,7 @@
 import useBus from "@/composables/useBus";
 import ItemList from "@/components/item-list/ItemList.vue";
 import { formatOrder } from "@/utils/common";
-import { computed } from "vue";
+import { ComputedRef, computed } from "vue";
 import { NOT_SELECTED_BUS_STOP_MESSAGE } from "@/constants/common";
 
 // Initializing bus composable
@@ -12,13 +12,15 @@ const bus = useBus();
  * Computed property to check if a bus stop is selected.
  * @returns {boolean} - True if a bus stop is selected, otherwise false.
  */
-const isStopSelected = computed(() => bus.state.selectedBusStop !== null);
+const isStopSelected: ComputedRef<boolean> = computed(
+  () => bus.state.selectedBusStop !== null
+);
 
 /**
  * Computed property for the selected header.
  * @returns {string} - The header to display for the selected bus stop.
  */
-const selectedHeader = computed(() => {
+const selectedHeader: ComputedRef<string> = computed(() => {
   const stop = bus.state.selectedBusStop;
   return stop ? `Bus Stop: ${stop.stop} ${formatOrder(stop.order)}` : "";
 });
@@ -44,7 +46,7 @@ const selectedHeader = computed(() => {
         list-type="aggregatedBusTimes"
         :selected-header="selectedHeader"
         :header="'Times'"
-        :item-list="[...bus.state.selectedBusStop?.times] || []"
+        :item-list="bus.selectedBusStopTimes.value"
       />
     </div>
   </div>

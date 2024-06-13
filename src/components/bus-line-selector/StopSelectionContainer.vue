@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import useBus from "@/composables/useBus";
 import ItemList from "@/components/item-list/ItemList.vue";
-import { computed } from "vue";
+import { ComputedRef, computed } from "vue";
 import { NOT_SELECTED_BUS_LINE_MESSAGE } from "@/constants/common";
 
 // Initialize the bus composable
@@ -11,7 +11,7 @@ const bus = useBus();
  * Computed property to check if a bus line is selected.
  * @returns {boolean} - True if a bus line is selected, false otherwise.
  */
-const isLineSelected = computed(() => bus.state.selectedBusLine !== null);
+const isLineSelected: ComputedRef<boolean> = computed(() => bus.state.selectedBusLine !== null);
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const isLineSelected = computed(() => bus.state.selectedBusLine !== null);
         list-type="aggregatedBusStops"
         :selected-header="`Bus Line: ${bus.state.selectedBusLine?.line}`"
         header="Bus Stops"
-        :item-list="[...bus.state.selectedBusLine?.stops] || []"
+        :item-list="bus.selectedBusLineStops.value"
         :selection-callback="bus.setSelectedBusStop"
       />
     </div>

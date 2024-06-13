@@ -3,8 +3,8 @@ The list can be sorted in ascending or descending order by clicking on the sort 
 The list items are clickable and trigger a selection callback when clicked. -->
 
 <script lang="ts" setup>
-import { PropType, computed, defineProps, ref } from "vue";
-import { TBusStop, TSortOrder, TAggregatedBusStop } from "@/types/common";
+import { ComputedRef, PropType, computed, defineProps, ref } from "vue";
+import { TBusStop, TSortOrder, TAggregatedBusStop, TItemListType } from "@/types/common";
 import {
   sortBusStopsByOrder,
   sortBusStopsByStop,
@@ -37,7 +37,7 @@ const props = defineProps({
     default: () => ({}),
   },
   listType: {
-    type: String,
+    type: String as PropType<TItemListType>,
     required: true,
   },
 });
@@ -55,16 +55,16 @@ const icon = {
   callback: changeSortDirection,
 };
 
-const isAggregatedStopsList = computed(
+const isAggregatedStopsList: ComputedRef<boolean> = computed(
   () => props.listType === "aggregatedBusStops"
 );
-const isStopsList = computed(() => props.listType === "busStops");
+
+const isStopsList: ComputedRef<boolean> = computed(() => props.listType === "busStops");
 
 /**
  * Computed property to sort the item list based on the type of list.
- * @returns {(TBusStop | TAggregatedBusStop | string)[]} The sorted item list.
  */
-const sortedItemList = computed(
+const sortedItemList:ComputedRef<(TBusStop | TAggregatedBusStop | string)[]> = computed(
   (): (TBusStop | TAggregatedBusStop | string)[] => {
     if (isAggregatedStopsList.value) {
       // Ensure that the props.itemList is of type TAggregatedBusStop[]
